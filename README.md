@@ -2,7 +2,7 @@
 
 ### [russian readme version / русская версия readme](./README_RU.md)
 
-my main-pc hyprland dotfiles [CachyOS]
+my main-pc/laptop dotfiles [CachyOS]
 
 ![](images/rice.png "rice")
 

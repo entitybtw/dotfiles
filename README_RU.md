@@ -2,7 +2,7 @@
 
 ### [english readme version / английская версия readme](./README.md)
 
-Hyprland дотфайлы моего основного ПК [CachyOS]
+Дотфайлы моего основного ПК и ноута [CachyOS]
 
 ![](images/rice.png "rice")
 
