@@ -89,7 +89,6 @@ binds {
     Mod+Return { spawn "kitty"; }
     Mod+D { spawn-sh "rofi -show drun"; }
     Mod+W { spawn-sh "bash /home/entitybtw/.config/rofi/scripts/wallpaper_launcher.sh"; }
-    Ctrl+Alt+Q { spawn-sh "sudo vpn toggle | xargs -I{} notify-send {}"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
