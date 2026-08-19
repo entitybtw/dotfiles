@@ -1,175 +1,148 @@
-/* Don't edit this file, modify styleoptions.css if you want to change color */
-
 * {
-  border: none;
-  font-family: MonaspiceNe Nerd Font Propo;
-  font-size: 14px;
-}
-
-#leftside,
-#window,
-#clock.centered,
-#rightside {
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.58);
-}
-
-window#waybar.solo #window,
-window#waybar.solo #leftside,
-window#waybar.solo #clock.centered,
-window#waybar.solo #rightside,
-window#waybar.empty #window {
-  box-shadow: initial;
-}
-
-#leftside,
-#centerbottom {
-  background-color: @bg-color;
-  border-radius: 16px;
-  margin: 8px 0px 8px 8px;
-}
-
-#custom-poweroff,
-#custom-sleep,
-#custom-exit {
-  font-size: 30px;
-  padding: 0px 6px 0px 6px;
-}
-
-#user label {
   font-size: 18px;
-  padding: 0px 6px 0px 6px;
-}
-
-#rightside {
-  background-color: @bg-color;
-  border-radius: 16px;
-  margin: 8px 8px 8px 0px;
-  color: @fg-color;
-}
-
-#traygroup {
-  background-color: @tray-bg-color;
-  border-radius: 16px;
-  color: @tray-fg-color;
-  padding-right: 8px;
-  margin: 4px;
-}
-
-#stats {
-  padding-left: 8px;
-}
-
-#custom-timeprefix,
-#custom-cpuprefix,
-#custom-dateprefix,
-#custom-memoryprefix,
-#network.statusprefix,
-#mpris.prefix,
-#network.dnlprefix,
-#network.uplprefix,
-#clock.date,
-#battery.prefix {
-  padding-right: 4px;
-}
-
-window {
-  /* background: @fg-color; */
-  background: rgba(30, 30, 46, 0);
-  padding: 0px 8px 0px 8px;
-  color: @fg-color;
-}
-
-#window,
-#clock.centered {
-  border-radius: 16px;
-  /*background: @bg-color;*/
-  background: @bg-color;
-  padding: 2px 8px 2px 8px;
-  font-weight: Bold;
-  margin: 8px 8px 8px 8px;
-}
-
-#tray {
-  padding: 0px 0px 0px 8px;
-}
-
-#privacy {
-  padding: 0px 0px 0px 8px;
-}
-
-#custom-cc {
-  padding: 0px 8px 0px 4px;
-}
-
-window#waybar.solo {
-  transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  font-family: FiraCode Nerd Font;
+  min-height: 0;
+  border-radius: 1rem;
+  padding: 0.1rem;
 }
 
 window#waybar {
-  transition: background 0.2s ease-in;
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
 }
 
-window#waybar.empty,
-window#waybar.empty #window {
-  transition: none;
+tooltip {
+  background: #000000;
+}
+tooltip label {
+  color: white;
 }
 
-window#waybar #window {
-  transition: background 0.1s ease-in;
-}
-
-window#waybar.solo #window {
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-
-
-window#waybar.empty #window,
-window#waybar.solo #window {
+#workspaces button {
+  padding: 0 5px;
   background: transparent;
+  color: white;
+  border-bottom: 3px solid transparent;
 }
 
-window#waybar.floating,
-window#waybar.tiled {
-  background: transparent;
+#workspaces button.focused {
+  background: #64727d;
+  border-bottom: 3px solid white;
 }
 
-#workspaces,
-#tags,
-#custom-app {
-  all: initial;
-  padding: 4px;
-  color: @fg-color;
+#mode,
+#clock,
+#battery {
+  padding: 0 10px;
 }
 
 #mode {
-  border-radius: 16px;
-  padding: 0px 8px;
-  margin-left: 4px;
+  background: #64727d;
+  border-bottom: 3px solid white;
 }
 
-#custom-app {
-  font-family: FantasqueSansM Nerd Font;
-  font-size: 14px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  margin: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #000000;
 }
 
-#workspaces button,
-#tags button {
-  all: initial;
-  padding: 0px 8px 0px 8px;
-  background: transparent;
-  border-radius: 12px;
-  color: @fg-color;
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
 }
 
-#workspaces button.focused,
-#workspaces button.active,
-#workspaces button.visible,
-#tags button.focused,
-#tags button.active,
-#tags button.visible {
-  background: @selected-bg-color;
-  color: @selected-fg-color;
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
 }
 
-@import url("styleoptions.css");
+#clock {
+  font-size: 18px;
+}
+
+#battery icon {
+  color: red;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #ffffff;
+  background-color: #26a65b;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#network.disconnected {
+  background-color: #f53c3c;
+}
+
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#custom-os_button {
+  font-size: 32px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#custom-os_button:hover {
+  background: white;
+  color: black;
+}
