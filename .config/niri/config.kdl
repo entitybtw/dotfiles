@@ -30,12 +30,12 @@ layout {
     }
     
     default-column-width { proportion 0.5; }
-    
+
     focus-ring {
         width 4
         active-color "#7fc8ff"
         inactive-color "#505050"
-    }
+    }    
     
     border {
         off
@@ -61,9 +61,9 @@ hotkey-overlay {
 }
 
 
+spawn-at-startup "syncthing" "-no-browser" "-no-console"
+spawn-at-startup "awww-daemon"
 spawn-at-startup "waybar"
-spawn-at-startup "syncthing --no-browser &"
-spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 
 environment {
@@ -81,15 +81,21 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^ghostty$"#
+    draw-border-with-background false
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
 binds {    
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "ghostty"; }
     Mod+D { spawn-sh "rofi -show drun"; }
     Mod+W { spawn-sh "bash /home/entitybtw/.config/rofi/scripts/wallpaper_launcher.sh"; }
-    
+    Mod+N { spawn-sh "pkill -9 waybar || waybar &"; }    
+
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
     
@@ -214,13 +220,16 @@ output "HDMI-A-1" {
     position x=0 y=0
 }
 
-output "DP-1" {
-    mode "1024x768@75.029"        // Только режим и позиция
+output "DP-2" {
+    mode "1024x768@75.029"
     scale 1
     transform "normal"
     position x=2560 y=0
 }
 
-output "DP-2" {
-    off
-}
+// output "DP-1" {
+//     off
+// }
+
+// Tide Island shortcut bindings
+include "/home/entitybtw/.config/tide-island/niri-shortcuts.kdl"
